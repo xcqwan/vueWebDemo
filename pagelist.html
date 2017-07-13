@@ -1,0 +1,81 @@
+<script src="vue.js"></script>
+<link rel="stylesheet" type="text/css" href="pagelist.css">
+
+<div id="page">
+  <div class="header">
+    <image class="bg-img" src="/images/total-background.png"></image>
+    <image class="avatar" v-bind:src="avatar"></image>
+    <p class="name">{{name}}</p>
+    <image class="img-button" src="/images/logout.png" bindtap="logout"></image>
+    <div class="total">
+      <p class="text-normal margin-left-10">页面总计</p>
+      <p class="text-large margin-left-10">{{length}}</p>
+      <p class="text-normal margin-left-10">个</p>
+    </div>
+  </div>
+  <div class="page-list">
+    <div class="page"
+         v-for="(item, index) in pageList" @click="itemClick(index)" >
+      <div class="page-content">
+        <image class="page-img" v-bind:src="pageIcon(index)"></image>
+        <p class="page-title">{{item.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var page = new Vue({
+    el: '#page',
+    data: {
+      name: '谢谢',
+      avatar: 'https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83eokkXDn4GliaGpLRZfjO2l99bXMOCyRqjhkMYPlfH6UPibn6ia78XlIGYAhRfcAtwDm9xfNrCATBtjaQ/0',
+      pageList: [{
+        name: 'Overview'
+      }, {
+        name: 'Favorite'
+      }, {
+        name: '周报'
+      }, {
+        name: '月报'
+      }, {
+        name: '销售汇总'
+      }, {
+        name: '区域汇总'
+      }, {
+        name: '门店分析'
+      }, {
+        name: '外卖分析'
+      }, {
+        name: '菜品分析'
+      }, {
+        name: '分时段统计'
+      }, {
+        name: '活动区'
+      }, {
+        name: '能耗分析'
+      }, {
+        name: '季节销售分析'
+      }, {
+        name: '报表页'
+      }, {
+        name: '日志分析'
+      }, {
+        name: '卡片存数据集页面'
+      }]
+    },
+    computed: {
+      length: function () {
+        return this.pageList.length
+      }
+    },
+    methods: {
+      itemClick: function (index) {
+        window.location.href = 'chart.html?index=' + index
+      },
+      pageIcon: function (index) {
+        return "/images/page-" + (index % 6) + ".png"
+      }
+    }
+  })
+</script>

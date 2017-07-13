@@ -1,0 +1,42 @@
+<script src="vue.js"></script>
+<link rel="stylesheet" type="text/css" href="login.css">
+
+<div id="login-page" class="container">
+  <div class="arc">
+    <image class="logo" src="/images/logo.png"></image>
+  </div>
+  <form class="login-form" action="pagelist.html" method="get">
+    <div class="input">
+      <p class="input-header">公司域</p>
+      <input id="domain" class="input-text" placeholder="请输入公司域" value="domain"/>
+    </div>
+    <div class="input">
+      <p class="input-header">邮箱</p>
+      <input id="email" class="input-text" placeholder="请输入邮箱地址" value="email"/>
+    </div>
+    <div class="input">
+      <p class="input-header">密码</p>
+      <input id="psd" class="input-text" placeholder="请输入密码" type="password" value="password"/>
+    </div>
+    <button class="login-button" @click="loginClick" >登录</button>
+  </form>
+  <button class="demo-button" @click="demoClick">查看行业示例</button>
+</div>
+<script>
+  var loginPage =new Vue({
+    el: '#login-page',
+    data: {
+      domain: 'demo',
+      email: 'hello@world.com',
+      password: 'Abcd!234'
+    },
+    methods: {
+      loginClick: function () {
+          console.log(this.domain)
+      },
+      demoClick: function () {
+        window.location.href = 'pagelist.html'
+      }
+    }
+  })
+</script>

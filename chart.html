@@ -1,0 +1,98 @@
+<script src="vue.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<script type="text/javascript" src="legend.js">  </script>
+<link rel="stylesheet" type="text/css" href="chart.css">
+
+<div style="overflow: hidden">
+  <canvas id="chart-canvas" v-bind:width="width" v-bind:height="height" @click="canvasClick"/>
+</div>
+
+<script>
+  var canvas = new Vue({
+    el: '#chart-canvas',
+    data: {
+      _chart: null,
+      _rect: null,
+      dpi: 3,
+      scale: 3
+    },
+    computed: {
+      width: function () {
+        return window.innerWidth * this.scale
+      },
+      height: function () {
+        return window.innerHeight * this.scale
+      }
+    },
+    mounted: function () {
+      var canvasId = this.$el.id
+      var width = this.$el.width
+      var height = this.$el.height
+      var dpi = this.dpi
+
+      this._chart = legendChart.drawChart(canvasId, width, height, {
+        isValidModel : function() {
+          return true
+        },
+        isNoData : function() {
+          return false
+        },
+        getChartInfo : function() {
+          return {
+            majorType :  "pie",
+            colors : ["#7CB5EC","#434348","#90ED7D","#F7A35C","#8085E9","#F15C80","#E4D354","#2B908F","#F45B5B","#91E8E1"],
+            data : [{
+              name : "生煎类",
+              p : 0.21,
+              value : "21"
+            }, {
+              name : "面类",
+              p : 0.18,
+              value : "18"
+            }, {
+              name : "饭类",
+              p : 0.40,
+              value : "40"
+            }, {
+              name : "小吃类",
+              p : 0.21,
+              value : "21"
+            }],
+            tooltipCallBack: function() {
+              return {
+                title: "tooltip",
+                data: ["123", "456"]
+              }
+            }
+          }
+        },
+        total: 100,
+        isDualAxis : function() {
+          return false
+        },
+        isHeavyChart : function() {
+          return false
+        }
+      }, false, {}, dpi)
+    },
+    methods: {
+      canvasClick: function (e) {
+        var clientX = e.clientX
+        var clientY = e.clientY
+
+        var _rect = this._rect || this.$el.getBoundingClientRect()
+        var coord = {
+          x: clientX - _rect.left,
+          y: clientY - _rect.top
+        }
+
+        coord.x *= this.scale
+        coord.y *= this.scale
+
+        var ne = {touches: [coord]}
+        console.log(ne)
+        this._chart && this._chart.showToolTip && this._chart.showToolTip(ne, true)
+      }
+    }
+  })
+</script>
