@@ -1,4 +1,6 @@
 <script src="vue.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="stylesheet" type="text/css" href="login.css">
 
 <div id="login-page" class="container">
@@ -19,8 +21,8 @@
       <input id="psd" class="input-text" placeholder="请输入密码" type="password" value="password"/>
     </div>
     <button class="login-button" @click="loginClick" >登录</button>
+    <button class="demo-button" @click="demoClick">查看行业示例</button>
   </form>
-  <button class="demo-button" @click="demoClick">查看行业示例</button>
 </div>
 <script>
   var loginPage =new Vue({

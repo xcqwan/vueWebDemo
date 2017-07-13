@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-  height: 300px;
+  height: 260px;
   background: -webkit-linear-gradient(90deg, #79D6F6, #69B5FC);
   position: relative;
 }
@@ -18,10 +18,10 @@ body {
 }
 
 .avatar {
-  width: 94px;
-  height: 94px;
+  width: 80px;
+  height: 80px;
   position: absolute;
-  left: 52px;
+  left: 20px;
   top: 20px;
   border-radius: 50%;
   box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24);
@@ -29,35 +29,35 @@ body {
 
 .name {
   position: absolute;
-  left: 170px;
-  top: 30px;
+  left: 120px;
+  top: 25px;
   color: white;
-  font-size: 20pt;
+  font-size: 16pt;
 }
 
 .img-button {
   position: absolute;
-  top: 36px;
-  right: 24px;
-  width: 40px;
-  height: 40px;
-  padding: 17px;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 15px;
 }
 
 .total {
   position: absolute;
-  left: 52px;
-  bottom: 30px;
+  left: 20px;
+  bottom: 20px;
   align-items: baseline;
 }
 
 .text-normal {
-  font-size: 16pt;
+  font-size: 13pt;
   color: white;
 }
 
 .text-large {
-  font-size: 20pt;
+  font-size: 18pt;
   color: white;
 }
 
@@ -70,8 +70,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   background: #FAFAFD;
-  margin-bottom: 30px;
-  padding: 20px;
+  padding: 5px;
 }
 
 .page {
@@ -79,19 +78,19 @@ body {
   height: auto;
   break-inside: avoid;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px;
 }
 
 .page-content {
   display: flex;
-  height: 200px;
+  height: 100px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: white;
-  box-shadow: 0px 3px 8px #C9DAEB;
+  box-shadow: 0px 2px 6px #C9DAEB;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
 }
 
 .page-content:active {
@@ -99,17 +98,15 @@ body {
 }
 
 .page-img {
-  width: 90px;
-  height: 90px;
-  margin-left: 16px;
+  width: 60px;
+  height: 60px;
   align-self: center;
 }
 
 .page-title {
   flex: 1;
   margin-left: 10px;
-  margin-right: 16px;
-  font-size: 18pt;
+  font-size: 13pt;
   font-weight: 300;
   text-align: right;
   color: #36A5EE;
