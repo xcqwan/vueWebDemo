@@ -7,7 +7,7 @@
   <div class="arc">
     <image class="logo" src="/images/logo.png"></image>
   </div>
-  <form class="login-form" action="pagelist.html" method="get">
+  <div class="login-form">
     <div class="input">
       <p class="input-header">公司域</p>
       <input id="domain" class="input-text" placeholder="请输入公司域" value="domain"/>
@@ -22,7 +22,7 @@
     </div>
     <button class="login-button" @click="loginClick" @touchstart="touchStart" >登录</button>
     <button class="demo-button" @click="demoClick" @touchstart="touchStart">查看行业示例</button>
-  </form>
+  </div>
 </div>
 <script>
   var loginPage =new Vue({
@@ -37,10 +37,12 @@
         console.log('touchStart')
       },
       loginClick: function () {
-          console.log(this.domain)
+        window.location.href = 'pagelist.html'
       },
       demoClick: function () {
-        window.location.href = 'pagelist.html'
+        console.log(this.domain)
+        console.log(this.email)
+        console.log(this.password)
       }
     }
   })
