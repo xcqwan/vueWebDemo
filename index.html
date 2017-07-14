@@ -20,8 +20,8 @@
       <p class="input-header">密码</p>
       <input id="psd" class="input-text" placeholder="请输入密码" type="password" value="password"/>
     </div>
-    <button class="login-button" @click="loginClick" >登录</button>
-    <button class="demo-button" @click="demoClick">查看行业示例</button>
+    <button class="login-button" @click="loginClick" @touchstart="touchStart" >登录</button>
+    <button class="demo-button" @click="demoClick" @touchstart="touchStart">查看行业示例</button>
   </form>
 </div>
 <script>
@@ -33,6 +33,9 @@
       password: 'Abcd!234'
     },
     methods: {
+      touchStart: function () {
+        console.log('touchStart')
+      },
       loginClick: function () {
           console.log(this.domain)
       },

@@ -18,7 +18,7 @@
   <div class="page-list">
     <div class="page"
          v-for="(item, index) in pageList" @click="itemClick(index)" >
-      <div class="page-content">
+      <div class="page-content" @touchstart="touchStart">
         <image class="page-img" v-bind:src="pageIcon(index)"></image>
         <p class="page-title">{{item.name}}</p>
       </div>
@@ -72,6 +72,9 @@
       }
     },
     methods: {
+      touchStart: function () {
+        console.log('touchStart')
+      },
       itemClick: function (index) {
         window.location.href = 'chart.html?index=' + index
       },

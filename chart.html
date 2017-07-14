@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="chart.css">
 
 <div style="overflow: hidden">
-  <canvas id="chart-canvas" v-bind:width="width" v-bind:height="height" @click="canvasClick"/>
+  <canvas id="chart-canvas" v-bind:style="style" v-bind:width="width" v-bind:height="height" @click="canvasClick"/>
 </div>
 
 <script>
@@ -15,14 +15,28 @@
       _chart: null,
       _rect: null,
       dpi: 3,
-      scale: 3
+      scale: 3,
+      margin: 10
     },
     computed: {
+      style: function () {
+        return {
+          'width': this.innerWidth + 'px',
+          'height': this.innerHeight + 'px',
+          'margin': this.margin + 'px'
+        }
+      },
+      innerWidth: function () {
+        return window.innerWidth - this.margin * 2
+      },
+      innerHeight: function () {
+        return window.innerHeight - this.margin * 2
+      },
       width: function () {
-        return window.innerWidth * this.scale
+        return this.innerWidth * this.scale
       },
       height: function () {
-        return window.innerHeight * this.scale
+        return this.innerHeight * this.scale
       }
     },
     mounted: function () {
